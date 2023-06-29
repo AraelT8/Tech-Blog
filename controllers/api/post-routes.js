@@ -3,7 +3,7 @@ const sequelize = require("../../config/connection");
 const { Post, User, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-
+// routes that will be used to create, update, and delete posts and find posts by id and by user id in the dashboard view of the application. 
 router.get("/", (req, res) => {
   console.log("======================");
   Post.findAll({
