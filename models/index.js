@@ -3,7 +3,7 @@ const Post = require("./Post");
 const User = require("./User");
 const Comment = require("./Comment");
 
-
+// create associations between models (User, Post, Comment) by creating references to the other models as foreign keys in each model.
 User.hasMany(Post, {
     foreignKey: "user_id"
 });

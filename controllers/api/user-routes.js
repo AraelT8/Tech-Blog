@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
 
-
+// GET /api/users -- get all users and their associated posts and comments 
 router.get("/", (req, res) => {
   
   User.findAll({
@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
     });
 });
 
-
+// GET /api/users/:id that finds a single user by its id and its associated posts and comments
 router.get("/:id", (req, res) => {
  
   User.findOne({
@@ -54,7 +54,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-
+// POST route that creates a new user and saves it to the database 
 router.post("/", (req, res) => {
   
   User.create({
@@ -79,7 +79,7 @@ router.post("/", (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//POST route that allows a user to login to their account 
 router.post('/login', (req, res) => {
    
   User.findOne({
@@ -109,7 +109,7 @@ router.post('/login', (req, res) => {
     });
   });
 });
-
+// POST route that allows the user toi logout of their account
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
    
@@ -121,7 +121,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
-
+// PUT route that updates a user by its id
 router.put("/:id", (req, res) => {
   
   User.update(req.body, {
@@ -142,7 +142,7 @@ router.put("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-
+// DELETE route that deletes a user by its id
 router.delete("/:id", (req, res) => {
   User.destroy({
     where: {

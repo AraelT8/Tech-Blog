@@ -1,3 +1,4 @@
+// config file that will store our MySQL username, password, and database name. This file will be used by Sequelize to connect our application to the database:
 const Sequelize = require("sequelize");
 
 require("dotenv").config();
